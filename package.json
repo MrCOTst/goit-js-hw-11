@@ -1,15 +1,15 @@
 {
-  "name": "goit-js-hw-091",
+  "name": "goit-js-hw-09",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://mrcotst.github.io/goit-js-hw-091",
+  "homepage": "https://mrcotst.github.io/goit-js-hw-09",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-091/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrCOTst/goit-js-hw-091.git"
+    "url": "git+https://github.com/MrCOTst/goit-js-hw-09.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
