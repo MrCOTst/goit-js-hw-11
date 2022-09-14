@@ -13,6 +13,7 @@ function startProm(e) {
   let amount = Number(refs.inputAmount.value);
   let delay = Number(refs.inputDelay.value);
   let step = Number(refs.inputStep.value);
+  let position = null;
 
   for (position = 1; position <= amount; position += 1) {
     console.log('step:', step);
