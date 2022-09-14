@@ -17,6 +17,7 @@ function startProm(e) {
   for (position = 1; position <= amount; position += 1) {
     console.log('step:', step);
     console.log('delay:', delay);
+    console.log('position:', position);
 
     createPromise(position, delay)
       .then(({ position, delay }) => {
