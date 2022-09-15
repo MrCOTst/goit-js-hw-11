@@ -39,7 +39,7 @@ function createPromise(position, delay) {
       if (shouldResolve) {
         resolve(objectPromise);
       } else {
-        reject(() => console.log('error'));
+        reject(objectPromise);
         console.log(delay);
       }
     }, delay);
