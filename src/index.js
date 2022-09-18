@@ -2,7 +2,7 @@ import debounce from 'lodash.debounce';
 import './css/styles.css';
 import { fetchCountries } from './fetchCountries';
 // import countryCardsTpl from './templates/country-cards';
-import countryCardTpl from '../templates/country-card';
+// import countryCardTpl from '../templates/country-card';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
