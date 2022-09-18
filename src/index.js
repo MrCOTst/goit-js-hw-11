@@ -57,7 +57,7 @@ function countriesCards(countries) {
         <img class="country-flag"
           src="${flags.svg}"
           alt="Flag of ${name.official}"
-          width = 50px height = 50px
+          width = 100px height = 50px
         />
         <h2 class="country-name">${name.official} </h2>
       </li>
@@ -76,9 +76,9 @@ function countriesCards(countries) {
       alt="Flag of ${name.official}"
       width = 200px height = 100px
     />
-    <p class="card-text">Capital:${capital} </p>
-    <p class="card-text">Population:${population} </p>
-    <p class="card-text">Languages:${Object.values(languages)} </p>`
+    <p class="card-text">Capital: ${capital} </p>
+    <p class="card-text">Population: ${population} </p>
+    <p class="card-text">Languages: ${Object.values(languages)} </p>`
         })
         .join("");
     };
