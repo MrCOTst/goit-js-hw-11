@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-two-button</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button type="submit" class="button">Search</button>
+      </form>
+      <div class="gallery">
+        <!-- Картки зображень -->
+      </div>
+      <button type="button" class="btn btn-primary button"
+      data-action="load-more">
+        
+        <span class="spinner-border spinner-border-sm spinner is-hidden"></span>
+        <span class="label">Show more</span>
+    </button>
+
+    <script src="js/01-two-button.js" type="module"></script>
+  </body>
+</html>

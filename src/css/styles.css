@@ -12,7 +12,13 @@ body {
   line-height: 1.5;
 }
 
-#search-box {
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+margin-left: auto;
+margin-right: auto;
+
   font: inherit;
   padding: 8px;
   min-width: 320px;
@@ -24,6 +30,33 @@ body {
   color: blue;
   font-size: 18px;
  
+}
+
+.button {
+  display: block;
+  margin-left: auto;
+margin-right: auto;
+}
+
+.button.is-hidden {
+  display: none;
+}
+
+.button > .spinner.is-hidden {
+  display: none;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-width: calc(100vw - 80px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
 }
 
 h1,h2,p {
