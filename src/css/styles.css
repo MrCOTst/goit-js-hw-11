@@ -19,13 +19,16 @@ body {
 margin-left: auto;
 margin-right: auto;
 
+  
+}
+
+input {
   font: inherit;
   padding: 8px;
   min-width: 320px;
   border-radius: 8px;
   border-color: blue;
 }
-
 ::placeholder {
   color: blue;
   font-size: 18px;
