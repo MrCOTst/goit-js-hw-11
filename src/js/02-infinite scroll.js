@@ -40,13 +40,11 @@ function fatchCards() {
       Notify.warning(
         'Sorry, there are no images matching your search query. Please try again.'
       );
-      loadMoreButton.hide();
-      return;
+       return;
     }
 
     if (!data.hits.length && data.totalHits) {
       Notify.info("We're sorry, but you've reached the end of search results.");
-      loadMoreButton.hide();
       return;
     }
   });

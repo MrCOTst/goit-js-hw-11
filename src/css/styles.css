@@ -12,14 +12,59 @@ body {
   line-height: 1.5;
 }
 
+li {
+  display: inline-block;
+  padding: 5px;
+  margin-right: 20px;
+  list-style: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: 2px solid blue;
+  border-radius: 8px;
+  background-color: #21d4f3;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
+}
+
+li > a:hover,
+li > a:focus {
+  color: #fafafa;
+}
+
+.goback {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.goback a {
+  color: #fcfcfc;
+  font-size: 18px;
+}
+
+.goback a:hover,
+.goback a:focus {
+  color: #212121;
+}
+
 .search-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
-margin-left: auto;
-margin-right: auto;
-
-  
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #774965;
+  border-radius: 8px;
+  font-size: 18px;
 }
 
 input {
@@ -32,13 +77,38 @@ input {
 ::placeholder {
   color: blue;
   font-size: 18px;
- 
 }
 
 .button {
-  display: block;
-  margin-left: auto;
-margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: auto;
+  border-radius: 4px;
+  border: none;
+  height: 50px;
+  min-width: 180px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1, 875;
+  background-color: #2196f3;
+  color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover,
+.button:focus {
+  border: 2px solid;
+  background-color: #21d4f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn {
+  margin-left: 45vw;
 }
 
 .button.is-hidden {
@@ -49,57 +119,99 @@ margin-right: auto;
   display: none;
 }
 
+.spinner {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+  border-left: 5px solid hsl(135, 17%, 95%);
+  border-bottom: 5px solid rgb(238, 18, 66);
+  border-right: 5px solid rgb(253, 253, 253);
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  max-width: 1140px;
+  grid-auto-rows: 320px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 20px;
   padding: 0;
-  margin: 0;
-  list-style: none;
+  margin-top: 100px;
   max-width: calc(100vw - 80px);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
 }
 
-h1,h2,p {
-  margin-top: 0;
-  margin-bottom: 0;
+.photo-card {
+  overflow: hidden;
+
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: #dbb858;
+  padding: 4px;
+  background-color: #eee9bbea;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-li {
-   list-style: none;
+.photo-card > img {
+  display: block;
+  height: 230px;
+  width: 100%;
+  border: 2px solid #dbb858;
+  border-radius: 10px;
+  object-fit: cover;
+  overflow: hidden;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.country-item {
+.photo-card > img:hover {
+  border-color: rgba(192, 53, 53, 0.25);
+  box-shadow: 4px 4px 4px rgba(192, 53, 53, 0.25);
+  transform: scale(1.03);
+}
+
+.photo-card > a {
+  display: block;
+  height: 230px;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border: 2px solid #dbb858;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.photo-card > a:hover {
+  border: 2px solid;
+  border-color: rgba(216, 21, 21, 0.25);
+  box-shadow: 4px 4px 4px rgba(192, 53, 53, 0.25);
+  transform: scale(1.03);
+}
+
+.info {
   display: flex;
-  min-width: 100px;
-  align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  padding: 15px;
 }
 
-.country-name {
-  margin-left: 20px;
-}
-
-.country-list {
-  padding-left: 0;
-}
-
-.country-info {
+.info-item {
   display: flex;
   flex-direction: column;
-}
-
-.search-country-name {
-  font-size: 36px;
-}
-
-.card-text {
-  font-size: 18px;
-}
-
-.search-country-flag {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  margin: 0;
 }

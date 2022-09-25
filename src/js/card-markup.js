@@ -1,19 +1,19 @@
 export default function photoCard(data) {
          return  `
         <div class="photo-card">
-        <img src="${data.previewURL}" alt="${data.tags} " loading="lazy" />
+        <img src="${data.webformatURL}" alt="${data.tags} " loading="lazy" />
         <div class="info">
           <p class="info-item">
-            <b>Likes: ${data.likes} </b>
+            <b>Likes: </b>${data.likes}
           </p>
           <p class="info-item">
-            <b>Views: ${data.views} </b>
+            <b>Views: </b>${data.views}
           </p>
           <p class="info-item">
-            <b>Comments: ${data.comments} </b>
+            <b>Comments: </b>${data.comments}
           </p>
           <p class="info-item">
-            <b>Downloads: ${data.downloads} </b>
+            <b>Downloads: </b>${data.downloads}
           </p>
         </div>
       </div>`

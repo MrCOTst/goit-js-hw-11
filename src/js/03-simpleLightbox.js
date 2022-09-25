@@ -1,9 +1,8 @@
 import '../css/styles.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import PhotoApiService from './photo-service';
-import photoCard from './card-markup';
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import photoCard from './simple-markup';
+import { lightbox } from './simple-call';
 
 const refs = {
   submit: document.querySelector('button[type="submit"]'),
@@ -42,15 +41,14 @@ function fatchCards() {
       Notify.warning(
         'Sorry, there are no images matching your search query. Please try again.'
       );
-      loadMoreButton.hide();
-      return;
+       return;
     }
 
     if (!data.hits.length && data.totalHits) {
       Notify.info("We're sorry, but you've reached the end of search results.");
-      loadMoreButton.hide();
-      return;
+       return;
     }
+    lightbox.refresh();
   });
 }
 
@@ -82,3 +80,5 @@ const observer = new IntersectionObserver(onEntry, {
   rootMargin: '100px',
 });
 observer.observe(refs.observe);
+
+
