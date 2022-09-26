@@ -32,22 +32,19 @@ function startSearch(e) {
     return;
   }
   fatchCards();
-  
+
   loadMoreButton.show();
-  
 }
 
 function fatchCards() {
   loadMoreButton.disabled();
   photoApiService.fetchArticles().then(data => {
-    loadMoreButton.enable();
-
     appendGalleryCards(data);
+    loadMoreButton.enable();
+    if (photoApiService.page === 2 && data.hits.length) {
+      Notify.success(`Hooray! We found ${data.totalHits} images.`);
+    }
 
-    if(photoApiService.page === 2 && data.hits.length) {
-    Notify.success(`Hooray! We found ${data.totalHits} images.`);
-  }
-  
     if (!data.hits.length && !data.totalHits) {
       Notify.warning(
         'Sorry, there are no images matching your search query. Please try again.'
@@ -56,20 +53,42 @@ function fatchCards() {
       return;
     }
 
-    if (!data.hits.length && data.totalHits) {
-      Notify.info(
-        "We're sorry, but you've reached the end of search results."
-      );
+    console.log(data.hits.length);
+    console.log(photoApiService.fotoForPage);
+    console.log(Math.ceil(data.hits.length / photoApiService.fotoForPage));
+    console.log(photoApiService.page);
+
+    if (
+      (!data.hits.length && data.totalHits) ||
+      data.hits.length / photoApiService.fotoForPage < 1
+    ) {
+      Notify.info("We're sorry, but you've reached the end of search results.");
       loadMoreButton.hide();
+      // observer.unobserve(refs.observe);
       return;
     }
+
+    // if (data.hits.length < photoApiService.fotoForPage) {
+    //   loadMoreButton.hide();
+    //   // console.log(Math.ceil(data.hits.length / photoApiService.fotoForPage))
+    //   return;
+    // }
+
+    // if ((data.hits.length / photoApiService.fotoForPage) < 1 ) {
+    //   loadMoreButton.hide();
+    //   console.log(Math.ceil(data.hits.length / photoApiService.fotoForPage));
+    //   // Notify.info(
+    //   //   "We're sorry, but you've reached the end of search results.");
+    //   return;
+    // }
+
+    // if (Math.ceil(data.hits.length / photoApiService.fotoForPage) === (photoApiService.page) ) {
+    //   loadMoreButton.hide();
+    //   console.log(Math.ceil(data.hits.length / photoApiService.fotoForPage))
+    //   return;
+    // }
+  });
 }
-  );
-}
-//     loadMoreButton.disabled();
-//     loadMoreButton.enable();
-//     loadMoreButton.show();
-//     loadMoreButton.hide();
 
 function appendGalleryCards(data) {
   const markup = data.hits.map(data => photoCard(data)).join('');

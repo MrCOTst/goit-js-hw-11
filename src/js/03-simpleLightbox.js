@@ -32,6 +32,7 @@ function startSearch(e) {
 function fatchCards() {
   photoApiService.fetchArticles().then(data => {
     appendGalleryCards(data);
+    observer.observe(refs.observe);
 
     if (photoApiService.page === 2 && data.hits.length) {
       Notify.success(`Hooray! We found ${data.totalHits} images.`);
@@ -44,9 +45,10 @@ function fatchCards() {
        return;
     }
 
-    if (!data.hits.length && data.totalHits) {
+    if (!data.hits.length && data.totalHits && ((data.hits.length / photoApiService.fotoForPage) < 1 )) {
       Notify.info("We're sorry, but you've reached the end of search results.");
-       return;
+      observer.unobserve(refs.observe);
+      return;
     }
     lightbox.refresh();
   });
@@ -79,6 +81,6 @@ const onEntry = entries => {
 const observer = new IntersectionObserver(onEntry, {
   rootMargin: '100px',
 });
-observer.observe(refs.observe);
+
 
 
